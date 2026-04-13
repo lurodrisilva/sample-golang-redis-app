@@ -1,4 +1,4 @@
-.PHONY: build run test test-race test-integration test-coverage test-bench lint fmt generate clean docker/build docker/run
+.PHONY: build run test test-race test-integration test-coverage test-bench lint fmt generate clean docker/build docker/run precommit/install precommit/run
 
 APP_NAME := sample-redis-app
 CMD_DIR := ./cmd/api
@@ -52,3 +52,9 @@ docker/build:
 
 docker/run:
 	docker run -p 8080:8080 $(APP_NAME):latest
+
+precommit/install:
+	pre-commit install
+
+precommit/run:
+	pre-commit run --all-files
