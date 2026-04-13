@@ -1,0 +1,21 @@
+meta {
+  name: Get Item - Not Found
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/items/00000000-0000-0000-0000-000000000000
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 404
+}
+
+tests {
+  test("should return 404 for non-existent item", function() {
+    expect(res.getStatus()).to.equal(404);
+  });
+}

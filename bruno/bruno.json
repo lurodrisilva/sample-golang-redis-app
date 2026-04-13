@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "sample-redis-app",
+  "type": "collection",
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "http://localhost:8080"
+  }
+}
