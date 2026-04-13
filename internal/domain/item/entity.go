@@ -38,7 +38,7 @@ func Reconstitute(id ItemID, name, description string, createdAt time.Time) *Ite
 }
 
 // ID returns the item identifier.
-func (i *Item) ID() ItemID         { return i.id }
-func (i *Item) Name() string       { return i.name }
-func (i *Item) Description() string { return i.description }
+func (i *Item) ID() ItemID           { return i.id }
+func (i *Item) Name() string         { return i.name }
+func (i *Item) Description() string  { return i.description }
 func (i *Item) CreatedAt() time.Time { return i.createdAt }
