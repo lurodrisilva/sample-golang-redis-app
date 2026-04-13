@@ -1,0 +1,32 @@
+meta {
+  name: Create Item - Invalid
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/items
+  body: json
+  auth: none
+}
+
+headers {
+  content-type: application/json
+}
+
+body:json {
+  {
+    "name": "",
+    "description": "Missing name should fail"
+  }
+}
+
+assert {
+  res.status: eq 400
+}
+
+tests {
+  test("should return 400 for empty name", function() {
+    expect(res.getStatus()).to.equal(400);
+  });
+}

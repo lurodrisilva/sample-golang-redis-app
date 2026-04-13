@@ -1,0 +1,29 @@
+meta {
+  name: Get Item
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/items/{{itemId}}
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+  res.body.id: isDefined
+  res.body.name: eq Widget
+  res.body.description: eq A useful widget
+  res.body.created_at: isDefined
+}
+
+tests {
+  test("should return the created item", function() {
+    const body = res.getBody();
+    expect(body.id).to.equal(bru.getVar("itemId"));
+    expect(body.name).to.equal("Widget");
+    expect(body.description).to.equal("A useful widget");
+    expect(body.created_at).to.be.a("string");
+  });
+}
