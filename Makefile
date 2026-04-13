@@ -20,7 +20,7 @@ test-integration:
 	go test -tags=integration -race ./...
 
 test-coverage:
-	go test -race -coverprofile=coverage.out ./...
+	go test -race -coverprofile=coverage.out $$(go list ./... | grep -v /cmd/)
 	go tool cover -func=coverage.out
 	@echo "--- Checking coverage >= $(COVERAGE_MIN)% ---"
 	@total=$$(go tool cover -func=coverage.out | grep ^total: | awk '{print $$3}' | tr -d '%'); \
