@@ -1,0 +1,22 @@
+# Version control
+.git
+.gitignore
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# CI / tooling
+.github/
+.omc/
+
+# Build artifacts
+bin/
+coverage.out
+*.test
+
+# Documentation
+*.md
+LICENSE

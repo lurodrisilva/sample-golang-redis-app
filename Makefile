@@ -1,4 +1,4 @@
-.PHONY: build run test test-race test-integration test-coverage test-bench lint fmt generate clean
+.PHONY: build run test test-race test-integration test-coverage test-bench lint fmt generate clean docker/build docker/run
 
 APP_NAME := sample-redis-app
 CMD_DIR := ./cmd/api
@@ -46,3 +46,9 @@ generate:
 
 clean:
 	rm -rf bin/ coverage.out
+
+docker/build:
+	docker build --tag $(APP_NAME):latest .
+
+docker/run:
+	docker run -p 8080:8080 $(APP_NAME):latest
